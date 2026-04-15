@@ -8,7 +8,7 @@ The project focuses on clean UI, performance, and a **smart, guided user experie
 
 ## Live Demo
 
-🔗 [FITNESS Landing Page](https://abdallahbenj.github.io/fitness-landing-page/)
+🔗 [FITNESS Landing Page](https://fitlanding.vercel.app/)
 
 ---
 
