@@ -11,10 +11,21 @@ const HomeSection = ({ sectionRef, sectionRefs }) => {
       className="home-section
       flex justify-center
       min-h-dvh
-      background-gradient"
+      background-gradient
+      bg-[url(/images/fitness-man-women-mobile.webp)]
+      md:bg-[url(/images/fitness-man-women-md.webp)]
+      lg:bg-[url(/images/fitness-man-women-lg.webp)]
+      bg-center bg-cover"
     >
+      {/* overlay */}
+      <div className="absolute inset-0 bg-linear-to-br from-white/60 via-sky-50/20 to-sky-100/60" />
+
+      {/* blobs */}
+      <div className="absolute -top-40 -left-40 w-96 h-96 bg-sky-500/20 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-sky-500/20 rounded-full blur-3xl" />
+
       <div
-        className="home-container
+        className="home-container z-20
         flex h-full w-full md:max-w-5xl"
       >
         <div
@@ -98,7 +109,7 @@ const HomeSection = ({ sectionRef, sectionRefs }) => {
                   flex-1
                   px-8 py-3 rounded
                   font-heading uppercase
-                  text-xl md:text-2xl
+                  text-xl md:text-xl
                   btn-primary"
                 >
                   Join Now
@@ -111,7 +122,7 @@ const HomeSection = ({ sectionRef, sectionRefs }) => {
                   flex-1
                   px-8 py-3 rounded
                   font-heading uppercase
-                  text-xl md:text-2xl
+                  text-xl md:text-xl
                   btn-secondary"
                 >
                   View Programs

@@ -59,6 +59,6 @@
   }
 
   .btn-secondary {
-    @apply cursor-pointer border-2 text-sky-500 bg-linear-to-r bg-neutral-100 hover:text-white hover:from-sky-400 hover:to-sky-500 active:scale-95 transition-transform duration-300;
+    @apply cursor-pointer border text-sky-500 bg-linear-to-r bg-neutral-100/50 hover:text-white hover:from-sky-400 hover:to-sky-500 active:scale-95 transition-all duration-300;
   }
 }
