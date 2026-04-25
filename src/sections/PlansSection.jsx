@@ -13,21 +13,45 @@ const PlansSection = ({ sectionRef, sectionRefs, setFormData }) => {
       ref={sectionRef}
       className="plans-section
       flex justify-center
-      min-h-dvh
+      relative
+      safe-screen
       scroll-mt-(--header-mobile) 
       md:scroll-mt-(--header-desktop) 
       background-gradient"
     >
+      {/* background texture */}
+      <picture>
+        <source
+          media="(min-width:1024px)"
+          srcSet="/images/fitness-landing-page-texture-lg.webp"
+        />
+        <source
+          media="(min-width:768px)"
+          srcSet="/images/fitness-landing-page-texture-md.webp"
+        />
+
+        <img
+          src="/images/fitness-landing-page-texture-mobile.webp"
+          alt="Fitness Hero"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
+          className="absolute inset-0 w-full h-full object-contain object-center md:object-cover"
+        />
+      </picture>
+
+      {/* Content */}
+
       <div
-        className="plans-container
+        className="plans-container z-20
         flex h-full w-full md:max-w-5xl"
       >
         <div
           className="plans-card
           p-2 md:p-6
           flex flex-col flex-1
-          min-h-[calc(100dvh-var(--header-mobile))]
-          md:min-h-[calc(100dvh-var(--header-desktop))]"
+          safe-screen-offset
+          md:safe-screen-offset-desktop"
         >
           {/* Content Start */}
 
@@ -35,14 +59,14 @@ const PlansSection = ({ sectionRef, sectionRefs, setFormData }) => {
             id="plans-heading"
             className=" 
             text-center md:text-left mt-4 mb-2
-            text-4xl md:text-6xl text-neutral-700"
+            text-4xl md:text-6xl text-sky-950"
           >
             Choose Your Membership Plan
           </h2>
           <div
             className="plans-cards
             p-2 my-auto
-            grid md:grid-cols-3 gap-6"
+            grid md:grid-cols-3 gap-4"
           >
             {plansContent.map((card, i) => {
               const { title, phrases, popular, CTABtn } = card;
@@ -51,13 +75,25 @@ const PlansSection = ({ sectionRef, sectionRefs, setFormData }) => {
                   key={i}
                   className={`plans-card
                   flex flex-col justify-between p-6
-                  border-l-2 border-sky-400
-                  rounded-tr-4xl rounded-bl-4xl             
-                  shadow-md hover:shadow-lg hover:md:scale-105
-                  transition-transform duration-300 ease-out
-                  ${!card.medium ? "md:scale-95 bg-neutral-100" : "relative bg-sky-100 scale-100"}`}
+
+                  border-l border-sky-400/50
+
+                  rounded-tr-2xl rounded-bl-2xl  
+
+                  shadow-lg shadow-black/5
+                  hover:shadow-xl hover:shadow-black/10
+
+                  transition-all duration-300 ease-out
+                  hover:-translate-y-1 hover:scale-[1.03]
+                  ${
+                    !card.medium
+                      ? "md:scale-95 bg-white/10"
+                      : "relative scale-100 bg-sky-500/10 border-sky-400/80"
+                  }`}
                 >
-                  <h3 className="text-3xl text-sky-500 mb-6">{title}</h3>
+                  <h3 className="text-3xl font-medium text-sky-500 mb-6">
+                    {title}
+                  </h3>
 
                   {popular && (
                     <span
@@ -77,14 +113,19 @@ const PlansSection = ({ sectionRef, sectionRefs, setFormData }) => {
                         <div
                           key={i}
                           className={`flex items-center gap-2 px-4 py-1 w-fit rounded-full
-                            ${badge === phrases[0] ? "mb-2 text-white bg-sky-500" : "text-sky-700 bg-white"}`}
+                            
+                            ${
+                              badge === phrases[0]
+                                ? "mb-2 text-white bg-sky-500"
+                                : "text-sky-600 bg-white"
+                            }`}
                         >
                           {badge === phrases[0] ? (
                             <span className="inline-block w-3 aspect-square bg-sky-100 rounded-full"></span>
                           ) : (
                             <HiBadgeCheck className="font-semibold text-xl text-emerald-500" />
                           )}
-                          <p className="font-bold">{badge}</p>
+                          <p className="text-sm font-bold">{badge}</p>
                         </div>
                       );
                     })}

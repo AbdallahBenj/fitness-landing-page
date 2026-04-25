@@ -88,7 +88,9 @@ const ReviewsMobileSlider = () => {
       className="reviews-cards 
       relative overflow-hidden
       p-2 w-full 
-      min-h-full
+
+      aspect-4/5 md:aspect-16/10
+
       flex justify-center items-center"
     >
       {reviewsContent.map((card, i) => {
@@ -104,9 +106,18 @@ const ReviewsMobileSlider = () => {
             className={`reviews-card absolute
                   w-full h-full
                   max-w-[calc(100vw-1rem)]
+
                   flex flex-col justify-between
-                  rounded-xl bg-neutral-100
+
+                  rounded-2xl 
+                  
+                  bg-neutral-100
+                  backdrop-blur-xl
+                  border border-white/20
+
+                  shadow-md
                   transition-[transform, opacity] duration-500 ease-in-out
+                  will-change-transform
                   ${isDragging ? "transition-none" : ""}
 
                   ${
@@ -129,16 +140,16 @@ const ReviewsMobileSlider = () => {
           >
             <div className="p-6">
               <div className="reviews-part flex items-center gap-6">
-                <p className="font-heading text-4xl text-sky-900">
+                <p className="font-heading text-4xl text-sky-500">
                   {score || `5`}
                 </p>
                 <StarsReviews score={score} />
               </div>
 
-              <div className="mt-6 text-neutral-600">
+              <div className="mt-6 text-neutral-800/80">
                 {description.map((paragraph, i) => {
                   return (
-                    <p key={i} className="mb-2">
+                    <p key={i} className="mb-2 leading-relaxed">
                       {paragraph}
                     </p>
                   );
@@ -148,19 +159,24 @@ const ReviewsMobileSlider = () => {
             <div
               className="profile-part
                     flex space-x-6 items-center
-                    p-6 rounded-b-xl
-                    bg-neutral-200"
+                    p-6 rounded-b-2xl
+                    
+                    bg-neutral-200
+                    backdrop-blur-md
+                    border-t border-white/10"
             >
               <div className="profile-picture">
                 <img
-                  className="rounded-full w-20 aspect-square"
+                  className="rounded-full w-20 aspect-square
+                  border-2 border-neutral-100
+                  shadow-sm"
                   src={image}
                   alt={`${name} image`}
                 />
               </div>
               <div className="profile-name">
-                <p className="font-heading text-xl text-sky-900 mb-2">{name}</p>
-                <p className="font-semibold text-sky-500">{classType}</p>
+                <p className="font-heading text-xl text-sky-500 mb-1">{name}</p>
+                <p className="font-semibold text-sky-400">{classType}</p>
               </div>
             </div>
           </div>
@@ -169,11 +185,22 @@ const ReviewsMobileSlider = () => {
       <button
         onClick={handlePrevious}
         aria-label="Previous reviews"
-        className="absolute 
-        top-1/2 left-2 z-30 
-        py-2 rounded 
-        flex items-center justify-center cursor-pointer
-        bg-sky-500/70 active:scale-90"
+        className="absolute
+        cursor-pointer
+        top-1/2 left-2 z-30
+
+        rounded 
+        h-12 w-7
+        flex items-center justify-center 
+
+        bg-sky-500/70
+        backdrop-blur-md
+        border border-white/20
+        
+        shadow-md
+
+        active:scale-90
+        transition-transform"
       >
         <HiChevronRight className="text-3xl text-white -scale-x-100" />
       </button>
@@ -181,10 +208,21 @@ const ReviewsMobileSlider = () => {
         onClick={handleNext}
         aria-label="Next reviews"
         className="absolute 
-        top-1/2 right-2 z-30 
-        py-2 rounded
-        flex items-center justify-center cursor-pointer
-        bg-sky-500/70 active:scale-90"
+        cursor-pointer
+        top-1/2 right-2 z-30
+
+        rounded 
+        h-12 w-7
+        flex items-center justify-center 
+
+        bg-sky-500/70
+        backdrop-blur-md
+        border border-white/20
+        
+        shadow-md
+
+        active:scale-90
+        transition-transform"
       >
         <HiChevronRight className="text-3xl text-white scale-x-100" />
       </button>

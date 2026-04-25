@@ -13,21 +13,45 @@ const ScheduleSection = ({ sectionRef, sectionRefs }) => {
       aria-labelledby="schedule-heading"
       className="schedule-section 
       flex justify-center
-      min-h-dvh
+      relative
+      safe-screen
       scroll-mt-(--header-mobile) 
       md:scroll-mt-(--header-desktop) 
       background-gradient"
     >
+      {/* background texture */}
+      <picture>
+        <source
+          media="(min-width:1024px)"
+          srcSet="/images/fitness-landing-page-texture-lg.webp"
+        />
+        <source
+          media="(min-width:768px)"
+          srcSet="/images/fitness-landing-page-texture-md.webp"
+        />
+
+        <img
+          src="/images/fitness-landing-page-texture-mobile.webp"
+          alt="Fitness Hero"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
+          className="absolute inset-0 w-full h-full object-contain object-center md:object-cover"
+        />
+      </picture>
+
+      {/* Content */}
+
       <div
-        className="schedule-container
+        className="schedule-container z-20
         flex h-full w-full md:max-w-5xl"
       >
         <div
           className="schedule-card
           p-2 md:p-6
           flex flex-col flex-1
-          min-h-[calc(100dvh-var(--header-mobile))]
-          md:min-h-[calc(100dvh-var(--header-desktop))]"
+          safe-screen-offset
+          md:safe-screen-offset-desktop"
         >
           {/* Content Start */}
           <h2
@@ -35,7 +59,7 @@ const ScheduleSection = ({ sectionRef, sectionRefs }) => {
             className="
             mt-4
             text-center md:text-left
-            text-4xl md:text-6xl text-neutral-700"
+            text-4xl md:text-6xl text-sky-950"
           >
             Flexible Weekly Schedule
           </h2>
@@ -59,11 +83,18 @@ const ScheduleSection = ({ sectionRef, sectionRefs }) => {
                   grid p-4
                   grid-cols-3
                   md:grid-cols-4 gap-4
+
                   border-b-2 border-sky-400
                   rounded-bl-2xl rounded-tr-2xl
-                  bg-neutral-100
-                  shadow-md hover:shadow-lg
-                  transition-transform duration-300 ease-out"
+
+                  bg-white/10
+                  backdrop-blur-xl
+                  
+                  shadow-md hover:shadow-xl
+                  shadow-black/5 hover:shadow-black/10
+
+                  transition-transform duration-300 ease-out
+                  hover:-translate-y-1"
                 >
                   <p
                     className="font-heading
@@ -77,14 +108,17 @@ const ScheduleSection = ({ sectionRef, sectionRefs }) => {
                     return (
                       <div
                         key={name}
-                        className="col-span-2 col-start-2 md:col-span-1 space-y-2"
+                        className="col-span-2 col-start-2 md:col-span-1 space-y-2
+                        p-2 bg-white/5
+                        border border-white/10
+                        backdrop-blur-sm"
                       >
                         <p className="font-heading text-xl text-sky-900 flex items-center">
                           {time}{" "}
                           <span className="inline-block h-1.5 w-1.5 rounded-full bg-sky-400 mx-2"></span>{" "}
                           <span>{hours}</span>
                         </p>
-                        <p className="text-md font-medium text-neutral-700">
+                        <p className="text-md font-medium text-neutral-800/80">
                           {className}
                         </p>
                       </div>
@@ -100,6 +134,7 @@ const ScheduleSection = ({ sectionRef, sectionRefs }) => {
                 ScrollToSection(sectionRefs.current["plans"]);
               }}
               className="font-heading 
+              
               rounded
               text-xl px-6 py-2 md:w-1/2
               btn-primary"

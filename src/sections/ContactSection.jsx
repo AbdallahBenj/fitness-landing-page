@@ -57,21 +57,51 @@ const ContactSection = ({ sectionRef, sectionRefs, formData, setFormData }) => {
       ref={sectionRef}
       className="contact-section
       flex justify-center
-      min-h-dvh
+      relative
+      safe-screen
       scroll-mt-(--header-mobile) 
       md:scroll-mt-(--header-desktop) 
       background-gradient"
     >
+      {/* background texture */}
+      <picture>
+        <source
+          media="(min-width:1024px)"
+          srcSet="/images/fitness-landing-page-texture-lg.webp"
+        />
+        <source
+          media="(min-width:768px)"
+          srcSet="/images/fitness-landing-page-texture-md.webp"
+        />
+
+        <img
+          src="/images/fitness-landing-page-texture-mobile.webp"
+          alt="Fitness Hero"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
+          className="absolute inset-0 w-full h-full object-contain object-center md:object-cover"
+        />
+      </picture>
+
+      {/* Content */}
+
       <div
-        className="contact-container
+        className="contact-container z-20
         flex h-full w-full md:max-w-5xl"
       >
         <div
           className="contact-card
           p-2 md:p-6
           flex flex-col flex-1
-          min-h-[calc(100dvh-var(--header-mobile))]
-          md:min-h-[calc(100dvh-var(--header-desktop))]"
+          safe-screen-offset
+          md:safe-screen-offset-desktop
+          
+          rounded-2xl
+          bg-white/10
+          backdrop-blur-xl
+          border border-white/20
+          shadow-xl shadow-black/5"
         >
           {/* Content Start */}
 
@@ -79,7 +109,7 @@ const ContactSection = ({ sectionRef, sectionRefs, formData, setFormData }) => {
             id="contact-heading"
             className=" 
             text-center md:text-left mt-4 mb-2
-            text-4xl md:text-6xl text-neutral-700"
+            text-4xl md:text-6xl text-sky-950"
           >
             Get Started Today
           </h2>
@@ -125,8 +155,16 @@ const ContactSection = ({ sectionRef, sectionRefs, formData, setFormData }) => {
                     value={formData.name}
                     onChange={handleChange}
                     className="w-full
-                    px-2 py-1 rounded
-                    border-2 border-sky-400 focus:outline-sky-700"
+                    px-3 py-2 rounded-lg
+
+                    bg-white/70
+                    backdrop-blur-md
+
+                    border border-sky-500/50
+                    
+                    focus:outline-none
+                    focus:ring-2 focus:ring-sky-500
+                    placeholder:text-neutral-500"
                   />
                 </div>
 
@@ -144,8 +182,16 @@ const ContactSection = ({ sectionRef, sectionRefs, formData, setFormData }) => {
                     value={formData.email}
                     onChange={handleChange}
                     className="w-full
-                    px-2 py-1 rounded
-                    border-2 border-sky-400 focus:outline-sky-700"
+                    px-3 py-2 rounded-lg
+
+                    bg-white/70
+                    backdrop-blur-md
+
+                    border border-sky-500/50
+                    
+                    focus:outline-none
+                    focus:ring-2 focus:ring-sky-500
+                    placeholder:text-neutral-500"
                   />
                 </div>
 
@@ -159,8 +205,16 @@ const ContactSection = ({ sectionRef, sectionRefs, formData, setFormData }) => {
                     value={formData.class}
                     onChange={handleChange}
                     className="w-full
-                    px-2 py-1 rounded
-                    border-2 border-sky-400 focus:outline-sky-700"
+                    px-3 py-2 rounded-lg
+
+                    bg-white/70
+                    backdrop-blur-md
+
+                    border border-sky-500/50
+                    
+                    focus:outline-none
+                    focus:ring-2 focus:ring-sky-500
+                    placeholder:text-neutral-500"
                   >
                     <option value="" disabled>
                       Select Class
@@ -186,8 +240,16 @@ const ContactSection = ({ sectionRef, sectionRefs, formData, setFormData }) => {
                     value={formData.plan}
                     onChange={handleChange}
                     className="w-full
-                    px-2 py-1 rounded
-                    border-2 border-sky-400 focus:outline-sky-700"
+                    px-3 py-2 rounded-lg
+
+                    bg-white/70
+                    backdrop-blur-md
+
+                    border border-sky-500/50
+                    
+                    focus:outline-none
+                    focus:ring-2 focus:ring-sky-500
+                    placeholder:text-neutral-500"
                   >
                     <option value="" disabled>
                       Select Plan
@@ -214,8 +276,16 @@ const ContactSection = ({ sectionRef, sectionRefs, formData, setFormData }) => {
                     value={formData.message}
                     onChange={handleChange}
                     className="w-full
-                    px-2 py-1 rounded
-                    border-2 border-sky-400 focus:outline-sky-700"
+                    px-3 py-2 rounded-lg
+
+                    bg-white/70
+                    backdrop-blur-md
+
+                    border border-sky-500/50
+                    
+                    focus:outline-none
+                    focus:ring-2 focus:ring-sky-500
+                    placeholder:text-neutral-500"
                   />
                 </div>
 
@@ -223,14 +293,14 @@ const ContactSection = ({ sectionRef, sectionRefs, formData, setFormData }) => {
                   type="submit"
                   className="
                   md:col-span-2
-                  px-6 py-2 rounded
+                  px-6 py-3 rounded-lg
                   font-heading uppercase
                   text-xl md:text-2xl
                   btn-primary"
                 >
                   Book My Session
                 </button>
-                <p className="md:col-span-2">
+                <p className="md:col-span-2 text-neutral-700">
                   No commitment. We’ll contact you shortly.
                 </p>
               </div>
