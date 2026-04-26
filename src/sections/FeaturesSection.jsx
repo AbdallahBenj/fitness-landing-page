@@ -11,10 +11,12 @@ const FeaturesSection = ({ sectionRef }) => {
       id="features"
       ref={sectionRef}
       aria-labelledby="features-heading"
+      // To add min-height using responsive safe screen offsets:
+      // safe-screen
       className="features-section
       flex justify-center
       relative
-      safe-screen
+      
       scroll-mt-(--header-mobile) 
       md:scroll-mt-(--header-desktop) 
       background-gradient"
@@ -43,14 +45,14 @@ const FeaturesSection = ({ sectionRef }) => {
       {/* Content */}
       <div
         className="features-container z-20
-        flex h-full w-full md:max-w-5xl"
+        flex w-full md:max-w-5xl" // h-full
       >
         <div
+          // To add min-height using responsive safe screen offsets:
+          // safe-screen-offset md:safe-screen-offset-desktop
           className="features-card
           p-2 md:p-6
-          flex flex-col flex-1
-          safe-screen-offset
-          md:safe-screen-offset-desktop"
+          flex flex-col flex-1"
         >
           {/* Content Start */}
           <h2
@@ -72,7 +74,8 @@ const FeaturesSection = ({ sectionRef }) => {
                 <div
                   key={title}
                   className="features-icon-card
-                  flex flex-col justify-center items-center gap-4
+                  cursor-pointer
+                  flex flex-col justify-center items-center
                   p-6 rounded-xl 
                   
                   bg-white/10
@@ -91,9 +94,9 @@ const FeaturesSection = ({ sectionRef }) => {
                   <Icon
                     className="
                     size-16 md:size-20
-                    p-3 rounded-full
+                    mb-6 p-3 rounded-full
                     
-                    bg-white/20
+                    bg-sky-500/10
                     backdrop-blur-md
                     
                     text-sky-500
@@ -103,7 +106,7 @@ const FeaturesSection = ({ sectionRef }) => {
                   />
                   <h3
                     className=" 
-                    text-center text-2xl font-semibold text-sky-500"
+                    text-center text-2xl font-medium text-sky-500"
                   >
                     {title}
                   </h3>
