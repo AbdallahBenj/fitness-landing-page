@@ -11,7 +11,7 @@ const HomeSection = ({ sectionRef, sectionRefs }) => {
       className="home-section
       flex justify-center
       relative
-      safe-screen
+      safe-screen-home
       background-gradient"
     >
       {/* background image */}
@@ -55,8 +55,8 @@ const HomeSection = ({ sectionRef, sectionRefs }) => {
           flex flex-1
           mt-(--header-mobile) 
           md:mt-(--header-desktop)
-          safe-screen-offset
-          md:safe-screen-offset-desktop"
+          safe-screen-offset-home
+          md:safe-screen-offset-desktop-home"
         >
           <div
             className="home-left-container
