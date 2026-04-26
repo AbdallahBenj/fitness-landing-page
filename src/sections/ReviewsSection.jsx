@@ -110,7 +110,7 @@ const ReviewsSection = ({ sectionRef }) => {
                     flex space-x-6 items-center
                     p-6 rounded-b-2xl
                     
-                    bg-neutral-200
+                    bg-neutral-200/60
                     backdrop-blur-md
                     border-t border-white/10"
                   >

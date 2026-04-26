@@ -76,7 +76,7 @@ const FeaturesSection = ({ sectionRef }) => {
                   p-6 rounded-xl 
                   
                   bg-white/10
-                  backdrop-blur-xl
+                  backdrop-blur-[2px]
                   border border-white/20
 
                   hover:bg-white/20

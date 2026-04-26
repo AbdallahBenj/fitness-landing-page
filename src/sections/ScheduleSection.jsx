@@ -88,7 +88,7 @@ const ScheduleSection = ({ sectionRef, sectionRefs }) => {
                   rounded-bl-2xl rounded-tr-2xl
 
                   bg-white/10
-                  backdrop-blur-xl
+                  backdrop-blur
                   
                   shadow-md hover:shadow-xl
                   shadow-black/5 hover:shadow-black/10
@@ -135,7 +135,7 @@ const ScheduleSection = ({ sectionRef, sectionRefs }) => {
               }}
               className="font-heading 
               
-              rounded
+              rounded-lg
               text-xl px-6 py-2 md:w-1/2
               btn-primary"
             >
@@ -146,7 +146,7 @@ const ScheduleSection = ({ sectionRef, sectionRefs }) => {
                 ScrollToSection(sectionRefs.current["classes"]);
               }}
               className="font-heading 
-              rounded
+              rounded-lg
               text-xl px-6 py-2 md:w-1/2
               btn-secondary"
             >

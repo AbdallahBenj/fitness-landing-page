@@ -128,7 +128,7 @@ const HomeSection = ({ sectionRef, sectionRefs }) => {
                   }}
                   className="
                   flex-1
-                  px-8 py-3 rounded
+                  px-8 py-3 rounded-lg
                   font-heading uppercase
                   text-xl md:text-xl
                   btn-primary"
@@ -141,7 +141,7 @@ const HomeSection = ({ sectionRef, sectionRefs }) => {
                   }}
                   className="
                   flex-1
-                  px-8 py-3 rounded
+                  px-8 py-3 rounded-lg
                   font-heading uppercase
                   text-xl md:text-xl
                   btn-secondary"

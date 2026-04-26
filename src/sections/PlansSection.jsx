@@ -79,7 +79,9 @@ const PlansSection = ({ sectionRef, sectionRefs, setFormData }) => {
                   border-l border-sky-400/50
 
                   rounded-tr-2xl rounded-bl-2xl  
-
+                                    
+                  backdrop-blur-[2px]
+                  
                   shadow-lg shadow-black/5
                   hover:shadow-xl hover:shadow-black/10
 
@@ -137,7 +139,7 @@ const PlansSection = ({ sectionRef, sectionRefs, setFormData }) => {
                     }}
                     className="font-heading
                     text-xl px-6 py-2 mt-6
-                    rounded-tr-xl rounded-bl-xl             
+                    rounded-tr-lg rounded-bl-lg             
                     btn-primary"
                   >
                     {CTABtn}
