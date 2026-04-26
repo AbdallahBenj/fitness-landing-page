@@ -71,8 +71,9 @@ const ScheduleSection = ({ sectionRef, sectionRefs }) => {
             Pick the time that works best for you.
           </p>
           <div
-            className="schedule-cards p-2
-            flex flex-col space-y-4 my-4"
+            className="schedule-cards
+            p-2 my-4
+            flex flex-col space-y-4"
           >
             {scheduleContent.map((part) => {
               const { name, week } = part;

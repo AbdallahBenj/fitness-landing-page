@@ -12,10 +12,12 @@ const ReviewsSection = ({ sectionRef }) => {
       id="reviews"
       ref={sectionRef}
       aria-labelledby="reviews-heading"
+      // To add min-height using responsive safe screen offsets:
+      // safe-screen and remove min-h-screen
       className="reviews-section
       flex justify-center
       relative
-      safe-screen
+      md:min-h-screen
       scroll-mt-(--header-mobile) 
       md:scroll-mt-(--header-desktop) 
       background-gradient"
@@ -48,11 +50,11 @@ const ReviewsSection = ({ sectionRef }) => {
         flex h-full w-full md:max-w-5xl"
       >
         <div
+          // To add min-height using responsive safe screen offsets:
+          // safe-screen-offset md:safe-screen-offset-desktop
           className="reviews-card
           p-2 md:p-6
-          flex flex-col flex-1
-          safe-screen-offset
-          md:safe-screen-offset-desktop"
+          flex flex-col flex-1"
         >
           {/* Content Start */}
 
@@ -66,7 +68,8 @@ const ReviewsSection = ({ sectionRef }) => {
           </h2>
 
           <div
-            className="reviews-cards p-2 my-auto
+            className="reviews-cards 
+            p-2 my-4
             hidden md:grid grid-cols-3 gap-4"
           >
             {reviewsContent.map((card) => {

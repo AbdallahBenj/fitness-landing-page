@@ -58,7 +58,9 @@ const ContactSection = ({ sectionRef, sectionRefs, formData, setFormData }) => {
       className="contact-section
       flex justify-center
       relative
+
       safe-screen
+
       scroll-mt-(--header-mobile) 
       md:scroll-mt-(--header-desktop) 
       background-gradient"
@@ -91,70 +93,72 @@ const ContactSection = ({ sectionRef, sectionRefs, formData, setFormData }) => {
         flex h-full w-full md:max-w-5xl"
       >
         <div
-          className="contact-card
-          p-2 md:p-6
+          className="contact-container
+          p-4 md:p-4
           flex flex-col flex-1
           safe-screen-offset
-          md:safe-screen-offset-desktop
-          
-          rounded-2xl
-          bg-white/10
-          backdrop-blur-xl
-          border border-white/20
-          shadow-xl shadow-black/5"
+          md:safe-screen-offset-desktop"
         >
           {/* Content Start */}
-
-          <h2
-            id="contact-heading"
-            className=" 
+          <div
+            className="contact-card
+            
+            rounded-2xl
+            bg-white/10
+            backdrop-blur-xl
+            border border-white/20
+            shadow-xl shadow-black/5"
+          >
+            <h2
+              id="contact-heading"
+              className=" 
             text-center md:text-left mt-4 mb-2
             text-4xl md:text-6xl text-sky-950"
-          >
-            Get Started Today
-          </h2>
-          <div
-            className="contact-cards 
-            p-2 my-auto
-            flex flex-col gap-4"
-          >
-            {/* Form Section Start */}
+            >
+              Get Started Today
+            </h2>
+            <div
+              className="contact-cards 
+              p-2 my-4
+              flex flex-col gap-4"
+            >
+              {/* Form Section Start */}
 
-            {result && (
-              <p
-                aria-live="polite"
-                className={`font-heading 
+              {result && (
+                <p
+                  aria-live="polite"
+                  className={`font-heading 
                   text-center
                   whitespace-pre-line 
                   text-xl md:text-2xl text-green-600
                   transition-opacity duration-500 ease-out
                 ${showResult ? "opacity-100" : "opacity-0"}
                 `}
-              >
-                {result}
-              </p>
-            )}
+                >
+                  {result}
+                </p>
+              )}
 
-            <form
-              onSubmit={handleSubmit}
-              className="w-full 
+              <form
+                onSubmit={handleSubmit}
+                className="w-full 
               font-medium text-sky-900"
-            >
-              <div className="inputs-card grid md:grid-cols-2 gap-4">
-                <div className="name-input w-full">
-                  <label htmlFor="name" className="font-semibold m-1 block">
-                    Your name
-                  </label>
-                  <input
-                    required
-                    autoComplete="name"
-                    id="name"
-                    name="name"
-                    type="text"
-                    placeholder="Name*"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="w-full
+              >
+                <div className="inputs-card grid md:grid-cols-2 gap-4">
+                  <div className="name-input w-full">
+                    <label htmlFor="name" className="font-semibold m-1 block">
+                      Your name
+                    </label>
+                    <input
+                      required
+                      autoComplete="name"
+                      id="name"
+                      name="name"
+                      type="text"
+                      placeholder="Name*"
+                      value={formData.name}
+                      onChange={handleChange}
+                      className="w-full
                     px-3 py-2 rounded-lg
 
                     bg-white/70
@@ -165,23 +169,23 @@ const ContactSection = ({ sectionRef, sectionRefs, formData, setFormData }) => {
                     focus:outline-none
                     focus:ring-2 focus:ring-sky-500
                     placeholder:text-neutral-500"
-                  />
-                </div>
+                    />
+                  </div>
 
-                <div className="name-input w-full">
-                  <label htmlFor="email" className="font-semibold m-1 block">
-                    Your email address
-                  </label>
-                  <input
-                    required
-                    autoComplete="email"
-                    id="email"
-                    name="email"
-                    type="email"
-                    placeholder="Email*"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full
+                  <div className="name-input w-full">
+                    <label htmlFor="email" className="font-semibold m-1 block">
+                      Your email address
+                    </label>
+                    <input
+                      required
+                      autoComplete="email"
+                      id="email"
+                      name="email"
+                      type="email"
+                      placeholder="Email*"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="w-full
                     px-3 py-2 rounded-lg
 
                     bg-white/70
@@ -192,19 +196,19 @@ const ContactSection = ({ sectionRef, sectionRefs, formData, setFormData }) => {
                     focus:outline-none
                     focus:ring-2 focus:ring-sky-500
                     placeholder:text-neutral-500"
-                  />
-                </div>
+                    />
+                  </div>
 
-                <div className="class-select w-full">
-                  <label htmlFor="class" className="font-semibold m-1 block">
-                    Choose a class
-                  </label>
-                  <select
-                    id="class"
-                    name="class"
-                    value={formData.class}
-                    onChange={handleChange}
-                    className="w-full
+                  <div className="class-select w-full">
+                    <label htmlFor="class" className="font-semibold m-1 block">
+                      Choose a class
+                    </label>
+                    <select
+                      id="class"
+                      name="class"
+                      value={formData.class}
+                      onChange={handleChange}
+                      className="w-full
                     px-3 py-2 rounded-lg
 
                     bg-white/70
@@ -215,31 +219,31 @@ const ContactSection = ({ sectionRef, sectionRefs, formData, setFormData }) => {
                     focus:outline-none
                     focus:ring-2 focus:ring-sky-500
                     placeholder:text-neutral-500"
-                  >
-                    <option value="" disabled>
-                      Select Class
-                    </option>
+                    >
+                      <option value="" disabled>
+                        Select Class
+                      </option>
 
-                    {classesContent.map((classOption, i) => {
-                      return (
-                        <option key={i} value={classOption.title}>
-                          {classOption.title}
-                        </option>
-                      );
-                    })}
-                  </select>
-                </div>
+                      {classesContent.map((classOption, i) => {
+                        return (
+                          <option key={i} value={classOption.title}>
+                            {classOption.title}
+                          </option>
+                        );
+                      })}
+                    </select>
+                  </div>
 
-                <div className="plan-select w-full">
-                  <label htmlFor="plan" className="font-semibold m-1 block">
-                    Choose a plan
-                  </label>
-                  <select
-                    id="plan"
-                    name="plan"
-                    value={formData.plan}
-                    onChange={handleChange}
-                    className="w-full
+                  <div className="plan-select w-full">
+                    <label htmlFor="plan" className="font-semibold m-1 block">
+                      Choose a plan
+                    </label>
+                    <select
+                      id="plan"
+                      name="plan"
+                      value={formData.plan}
+                      onChange={handleChange}
+                      className="w-full
                     px-3 py-2 rounded-lg
 
                     bg-white/70
@@ -250,32 +254,35 @@ const ContactSection = ({ sectionRef, sectionRefs, formData, setFormData }) => {
                     focus:outline-none
                     focus:ring-2 focus:ring-sky-500
                     placeholder:text-neutral-500"
-                  >
-                    <option value="" disabled>
-                      Select Plan
-                    </option>
+                    >
+                      <option value="" disabled>
+                        Select Plan
+                      </option>
 
-                    {pricingContent.map((planOption, i) => {
-                      return (
-                        <option key={i} value={planOption.title}>
-                          {planOption.title}
-                        </option>
-                      );
-                    })}
-                  </select>
-                </div>
+                      {pricingContent.map((planOption, i) => {
+                        return (
+                          <option key={i} value={planOption.title}>
+                            {planOption.title}
+                          </option>
+                        );
+                      })}
+                    </select>
+                  </div>
 
-                <div className="name-input w-full md:col-span-2">
-                  <label htmlFor="message" className="font-semibold m-1 block">
-                    Any goals or questions? (optional)
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    placeholder="Comment.."
-                    value={formData.message}
-                    onChange={handleChange}
-                    className="w-full
+                  <div className="name-input w-full md:col-span-2">
+                    <label
+                      htmlFor="message"
+                      className="font-semibold m-1 block"
+                    >
+                      Any goals or questions? (optional)
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      placeholder="Comment.."
+                      value={formData.message}
+                      onChange={handleChange}
+                      className="w-full
                     px-3 py-2 rounded-lg
 
                     bg-white/70
@@ -286,29 +293,29 @@ const ContactSection = ({ sectionRef, sectionRefs, formData, setFormData }) => {
                     focus:outline-none
                     focus:ring-2 focus:ring-sky-500
                     placeholder:text-neutral-500"
-                  />
-                </div>
+                    />
+                  </div>
 
-                <button
-                  type="submit"
-                  className="
+                  <button
+                    type="submit"
+                    className="
                   md:col-span-2
                   px-6 py-3 rounded-lg
                   font-heading uppercase
                   text-xl md:text-2xl
                   btn-primary"
-                >
-                  Book My Session
-                </button>
-                <p className="md:col-span-2 text-neutral-700">
-                  No commitment. We’ll contact you shortly.
-                </p>
-              </div>
-            </form>
+                  >
+                    Book My Session
+                  </button>
+                  <p className="md:col-span-2 text-neutral-700">
+                    No commitment. We’ll contact you shortly.
+                  </p>
+                </div>
+              </form>
 
-            {/* Form Section Start */}
+              {/* Form Section Start */}
+            </div>
           </div>
-
           {/* Content End */}
         </div>
       </div>

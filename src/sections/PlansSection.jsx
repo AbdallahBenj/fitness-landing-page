@@ -65,7 +65,7 @@ const PlansSection = ({ sectionRef, sectionRefs, setFormData }) => {
           </h2>
           <div
             className="plans-cards
-            p-2 my-auto
+            p-2 my-4
             grid md:grid-cols-3 gap-4"
           >
             {plansContent.map((card, i) => {
